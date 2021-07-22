@@ -1,0 +1,46 @@
+<div class="compare-page">
+  <%= link_to 'Back', products_path, class: 'btn btn-success mt-5 rounded-pill rounded-start text-white' %>
+
+  <div class="container overflow-auto">
+    <div class="row">
+      <% if @compare_products && @compare_products.count < 2 %>
+        <div class="col-12">
+          <p class='fs-3 text-center mt-5'>Please select more than one product</p>
+        </div>
+      <% elsif @compare_products %>
+        <div class="container text-center">
+          <h1>Compare your items:</h1>
+        </div>
+        <div class="row flex-row flex-nowrap">
+          <div class="col-3"></div>
+          <% @compare_products.count.times do %>
+              <div class="col-3">
+                <p><%= image_tag 'card-img.jpg', class: 'card-img-top', alt: 'image' %></p>
+              </div>
+          <% end %>
+        </div>
+        <div class="row flex-row flex-nowrap">
+          <div class="col-3 border-end">
+            <p class="fs-6">Name:</p>
+            <hr>
+            <p class="fs-6">RAM:</p>
+            <hr>
+            <p class="fs-6">CPU:</p>
+            <hr>
+            <p class="fs-6">GPU:</p>
+            <hr>
+            <p class="fs-6">Price:</p>
+            <hr>
+          </div>
+          <% @compare_products.each do |c_product| %>
+            <%= render 'compare_item', c_product: c_product %>
+          <% end %>
+        </div>
+      <% else %>
+      <div class="col-12">
+        <p class='fs-3 text-center mt-5'>Sorry, but your list is empty</p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
