@@ -16,20 +16,7 @@
     <div class="col-9">
       <div class="row">
         <% @products.each do |product| %>
-          <div class="col-md d-flex mb-3 justify-content-center">
-            <div class="card" style="width: 18rem;">
-              <%= image_tag 'card-img.jpg', class: 'card-img-top', alt: 'image' %>
-              <div class="card-body">
-                <h5 class="card-title"><%= product.name %></h5>
-                <p class="card-text"><%= product.description.truncate(125) %></p>
-                <%= link_to product.price, product,
-                                              class: 'btn btn-primary text-white' %>
-                <%= link_to 'Destroy', product, class: 'link-danger bg-white mx-3',
-                                                method: :delete,
-                                                data: { confirm: 'Are you sure?' } %>
-              </div>
-            </div>
-          </div>
+          <%= render product %>
         <% end %>
       </div>
     </div>
