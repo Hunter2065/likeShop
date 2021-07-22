@@ -11,4 +11,20 @@
   .submit-button {
     width: 50%;
   }
+
+  .error-message {
+    position: absolute;
+    bottom: 9%;
+    margin: 0;
+    right: 7%;
+    color: red;
+  }
+}
+
+.card {
+  .price-btn {
+    min-width: 99px;
+  }
+
+  min-height: 496px;
 }
