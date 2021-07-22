@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+p 'Started seeding'
+10.times do |time|
+  Product.create!(
+    name: 'Xiaomi Mi Notebook Pro ' + time.to_s,
+    description: Faker::Lorem.paragraph(sentence_count: 5, supplemental: false,
+                                       random_sentences_to_add: 5),
+    ram: 10 + 5 / 2,
+    cpu: 'Intel Core i7-9200U',
+    gpu: 'NVidia GeForce 250MX',
+    price: 25423.00
+  )
+end
+p 'Finished seeding'
