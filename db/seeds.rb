@@ -15,7 +15,7 @@ p 'Started seeding'
     ram: 10 + 5 / 2,
     cpu: 'Intel Core i7-9200U',
     gpu: 'NVidia GeForce 250MX',
-    price: 25423.00
+    price: Faker::Number.decimal(l_digits: 3, r_digits: 2)
   )
 end
 p 'Finished seeding'
