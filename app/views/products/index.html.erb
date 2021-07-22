@@ -2,7 +2,10 @@
 
 <div class="container">
   <div class="row text-center">
-    <h1>Products</h1>
+    <div class="col-3"></div>
+    <div class="col-9">
+      <h1>Products</h1>
+    </div>
   </div>
   <div class="row mt-5 justify-content-center">
     <div class="col-md">
@@ -18,6 +21,9 @@
         <% @products.each do |product| %>
           <%= render product %>
         <% end %>
+      </div>
+      <div class="pagination justify-content-center">
+        <%= will_paginate @products, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
       </div>
     </div>
   </div>

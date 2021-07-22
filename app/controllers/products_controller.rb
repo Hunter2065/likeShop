@@ -1,9 +1,13 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
+  # Places per page
+  PLACES_PER_PAGE = 9
+
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page],
+                                                      per_page: PLACES_PER_PAGE)
   end
 
   # GET /products/1 or /products/1.json
