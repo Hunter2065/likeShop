@@ -22,9 +22,25 @@
 }
 
 .card {
+  min-height: 496px;
+
   .price-btn {
     min-width: 99px;
   }
 
-  min-height: 496px;
+  .compare_button {
+    cursor: pointer;
+  }
+
+  .selected_compare {
+    border-radius: 20px;
+    box-shadow: 0 0 10px green;
+    font-size: 23px;
+  }
+}
+
+.compare-page {
+  .container {
+    scrollbar-width: none;
+  }
 }
