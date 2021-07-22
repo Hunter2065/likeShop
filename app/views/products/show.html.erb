@@ -1,9 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'Back', products_path, class: 'btn btn-success mt-5 rounded-pill ' +
+                                                  'rounded-start text-white' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= image_tag 'card-img.jpg', alt: 'image' %>
+    </div>
+    <div class="col-lg-6">
+      <h1><%= @product.name %></h1>
+      <hr>
+      <p class='fs-6'><%= @product.description %></p>
+      <br>
+      <div class="row">
+        <div class="col-lg-6">
+          <p class='fs-3 mt-2 text-center'>$<%= @product.price %></p>
+        </div>
+        <div class="col-lg-6">
+          <p><%= link_to 'Edit', edit_product_path(@product),
+                                class: 'btn btn-success fs-4 text-white' %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
