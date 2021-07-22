@@ -24,6 +24,10 @@
 .card {
   min-height: 496px;
 
+  .card-body {
+    max-height: 208px;
+  }
+
   .price-btn {
     min-width: 99px;
   }

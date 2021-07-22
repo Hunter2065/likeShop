@@ -7,7 +7,8 @@
             <% if product.errors[:name] %>
               <%= f.label :name, class: 'form-label' %>
               <%= f.text_field :name, class: 'form-control',
-                                                         placeholder: 'Product name' %>
+                                                    placeholder: 'Product name',
+                                                    alt:  'Product name' %>
             <% end %>
             <p class='error-message'><%= product.errors[:name].first %></p>
           </div>
@@ -15,8 +16,8 @@
             <%= f.label :description, class: 'form-label' %>
             <% if product.errors[:description] %>
               <%= f.text_area :description, class: 'form-control',
-                                                placeholder: 'Something about place..',
-                                                      alt: 'Description', size: '80' %>
+                                        placeholder: 'Something about place..',
+                                              alt: 'Description', size: '80' %>
             <% end %>
             <p class='error-message'><%= product.errors[:description].first %></p>
           </div>
@@ -24,7 +25,8 @@
             <% if product.errors[:ram] %>
               <%= f.label :ram, class: 'form-label' %>
               <%= f.text_field :ram, class: 'form-control',
-                                                         placeholder: 'Value of RAM' %>
+                                                       placeholder: 'RAM value',
+                                                       alt: 'RAM value' %>
             <% end %>
             <p class='error-message'><%= product.errors[:ram].first %></p>
           </div>
@@ -32,7 +34,8 @@
             <% if product.errors[:cpu] %>
               <%= f.label :cpu, class: 'form-label' %>
               <%= f.text_field :cpu, class: 'form-control',
-                                                         placeholder: 'CPU model' %>
+                                                      placeholder: 'CPU model',
+                                                      alt: 'CPU model' %>
             <% end %>
             <p class='error-message'><%= product.errors[:cpu].first %></p>
           </div>
@@ -40,9 +43,18 @@
             <% if product.errors[:gpu] %>
               <%= f.label :gpu, class: 'form-label' %>
               <%= f.text_field :gpu, class: 'form-control',
-                                                         placeholder: 'Product name' %>
+                                                      placeholder: 'GPU model',
+                                                      alt: 'GPU model' %>
             <% end %>
             <p class='error-message'><%= product.errors[:gpu].first %></p>
+          </div>
+          <div class="mb-3 position-relative">
+            <%= f.label :picture, class: 'form-label' %>
+            <% if product.errors[:picture] %>
+              <%= f.file_field :picture, class: 'form-control',
+                    placeholder: 'Select you file', alt: 'picture uploader' %>
+            <% end %>
+            <p class='error-message'><%= product.errors[:picture].first %></p>
           </div>
           <div class="mb-3 position-relative">
             <%= f.label :price, class: 'form-label' %>

@@ -13,9 +13,9 @@
         </div>
         <div class="row flex-row flex-nowrap">
           <div class="col-3"></div>
-          <% @compare_products.count.times do %>
+          <% @compare_products.each do |product| %>
               <div class="col-3">
-                <p><%= image_tag 'card-img.jpg', class: 'card-img-top', alt: 'image' %></p>
+                <p><%= image_tag product.picture.url, class: 'card-img-top', alt: 'image' %></p>
               </div>
           <% end %>
         </div>

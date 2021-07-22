@@ -1,6 +1,6 @@
 <div class="col-md d-flex mb-3 justify-content-center">
   <div class="card" style="width: 18rem;">
-    <%= image_tag 'card-img.jpg', class: 'card-img-top', alt: 'image' %>
+    <%= image_tag product.picture.thumb.url, class: 'card-img-top', alt: 'image' %>
     <div class="card-body">
       <h5 class="card-title"><%= product.name %></h5>
       <p class="card-text mb-5"><%= product.description.truncate(125) %></p>

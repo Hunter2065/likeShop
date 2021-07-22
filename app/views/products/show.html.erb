@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
-      <%= image_tag 'card-img.jpg', alt: 'image' %>
+      <%= image_tag @product.picture.url, width: '100%', alt: 'image' %>
     </div>
     <div class="col-lg-6">
       <h1><%= @product.name %></h1>

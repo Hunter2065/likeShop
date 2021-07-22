@@ -15,7 +15,10 @@ p 'Started seeding'
     ram: 10 + 5 / 2,
     cpu: 'Intel Core i7-9200U',
     gpu: 'NVidia GeForce 250MX',
-    price: Faker::Number.decimal(l_digits: 3, r_digits: 2)
-  )
+    price: Faker::Number.decimal(l_digits: 3, r_digits: 2),
+    picture: Rack::Test::UploadedFile.new(
+                        File.open(Rails.root.join('app/assets/images/card-img.jpg')),
+                        'image/jpg',
+                      ))
 end
 p 'Finished seeding'

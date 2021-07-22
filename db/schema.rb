@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_153119) do
+ActiveRecord::Schema.define(version: 2021_07_22_165058) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_153119) do
     t.string "ram"
     t.string "cpu"
     t.string "gpu"
+    t.string "picture"
   end
 
 end
