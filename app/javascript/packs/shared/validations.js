@@ -12,6 +12,57 @@ let numberFieldValidation = (numberFieldElement) => {
       event.originalTarget.value = value.slice(0, -1);
     }
   });
-};
+}
 
-export { numberFieldValidation }
+let flashMessage = message => {
+  let div = document.createElement('div');
+  let button = document.createElement('button');
+  let message_span = document.createElement('span');
+
+  div.classList.add('alert', 'alert-danger', 'alert-dismissible',
+                              'position-absolute', 'start-50', 'fade', 'show');
+  div.role = 'alert';
+  button.classList.add('btn-close');
+  button.setAttribute('data-bs-dismiss', 'alert');
+  button.type = 'button';
+  message_span.textContent = message;
+  div.appendChild(button);
+  div.appendChild(message_span);
+  document.body.prepend(div);
+}
+
+let resetFiles = fileHandler => {
+  fileHandler.value = null;
+}
+
+let validateFile = picture => {
+  const allowedExtensions =  ['jpg', 'jpeg', 'gif', 'png'],
+        sizeLimit = 1048576; // 1 megabyte
+
+  // destructuring file name and size from file object
+  const { name:fileName, size:fileSize } = picture.files[0];
+
+  /*
+  * if filename is apple.png, we split the string to get ["apple","png"]
+  * then apply the pop() method to return the file extension
+  *
+  */
+  const fileExtension = fileName.split(".").pop();
+
+  /*
+    check if the extension of the uploaded file is included
+    in our array of allowed file extensions
+  */
+  if(!allowedExtensions.includes(fileExtension)){
+
+    return `File type .${fileExtension} is not allowed.`;
+
+  } else if(fileSize > sizeLimit){
+
+    return 'File is too large';
+  }
+
+  return true;
+}
+
+export { numberFieldValidation, resetFiles, flashMessage, validateFile }
