@@ -21,6 +21,30 @@
             <p class='error-message'><%= product.errors[:description].first %></p>
           </div>
           <div class="mb-3 position-relative">
+            <% if product.errors[:ram] %>
+              <%= f.label :ram, class: 'form-label' %>
+              <%= f.text_field :ram, class: 'form-control',
+                                                         placeholder: 'Value of RAM' %>
+            <% end %>
+            <p class='error-message'><%= product.errors[:ram].first %></p>
+          </div>
+          <div class="mb-3 position-relative">
+            <% if product.errors[:cpu] %>
+              <%= f.label :cpu, class: 'form-label' %>
+              <%= f.text_field :cpu, class: 'form-control',
+                                                         placeholder: 'CPU model' %>
+            <% end %>
+            <p class='error-message'><%= product.errors[:cpu].first %></p>
+          </div>
+          <div class="mb-3 position-relative">
+            <% if product.errors[:gpu] %>
+              <%= f.label :gpu, class: 'form-label' %>
+              <%= f.text_field :gpu, class: 'form-control',
+                                                         placeholder: 'Product name' %>
+            <% end %>
+            <p class='error-message'><%= product.errors[:gpu].first %></p>
+          </div>
+          <div class="mb-3 position-relative">
             <%= f.label :price, class: 'form-label' %>
             <% if product.errors[:price] %>
               <%= f.number_field :price, class: 'form-control',
