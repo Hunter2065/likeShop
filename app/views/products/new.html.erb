@@ -1,5 +1,9 @@
-<h1>New Product</h1>
-
+<%= link_to 'Back', products_path, class: 'btn btn-success mt-5 rounded-pill rounded-start text-white' %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>New Product</h1>
+    </div>
+  </div>
+</div>
 <%= render 'form', product: @product %>
-
-<%= link_to 'Back', products_path %>
