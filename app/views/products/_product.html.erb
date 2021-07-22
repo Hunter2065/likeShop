@@ -10,6 +10,9 @@
         <%= link_to 'Destroy', product, class: 'link-danger bg-white mx-3',
                                         method: :delete,
                                         data: { confirm: 'Are you sure?' } %>
+        <span data-attribute-id='<%= product.id %>' class='compare_button'>
+          <%= image_tag 'weigher.png', width: '30px' %>
+        </span>
       </div>
     </div>
   </div>
