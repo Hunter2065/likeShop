@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  root :to => redirect('/products')
 
   resources :products do
     get 'compare', on: :collection
