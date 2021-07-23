@@ -3,11 +3,11 @@
 
   <div class="container overflow-auto">
     <div class="row">
-      <% if @compare_products && @compare_products.count < 2 %>
+      <% if @compare_products.count < 2 && @compare_products.present? %>
         <div class="col-12">
           <p class='fs-3 text-center mt-5'>Please select more than one product</p>
         </div>
-      <% elsif @compare_products %>
+      <% elsif @compare_products.present? %>
         <div class="container text-center">
           <h1>Compare your items:</h1>
         </div>
