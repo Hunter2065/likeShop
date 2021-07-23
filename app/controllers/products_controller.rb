@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :compare, :get_compare_products
 
   # Places per page
   PLACES_PER_PAGE = 9
@@ -70,7 +71,7 @@ class ProductsController < ApplicationController
   end
 
   def compare
-    @compare_products = if params[:id] then Product.find(params[:id]) end
+    @compare_products = Product.where(id: @products_id_array)
   end
 
   private
@@ -83,5 +84,10 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :description, :price, :ram, :cpu,
                                                                 :gpu, :picture)
+    end
+
+    def get_compare_products
+      @cookie = cookies[:compareItems]
+      @products_id_array =  if @cookie then JSON.parse(@cookie) end
     end
 end

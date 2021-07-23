@@ -1,6 +1,8 @@
 let products = document.getElementsByClassName('compare_button');
 let link_to_compare = document.getElementById('link_to_compare');
-let arrayOfIds = [];
+let localCookies = getCookie('compareItems');
+let parsedCookie = localCookies ? JSON.parse(localCookies) : [];
+let arrayOfIds = parsedCookie;
 
 let each = (elems, fn) => {
   var i = -1;
@@ -9,25 +11,29 @@ let each = (elems, fn) => {
   }
 }
 
-link_to_compare.addEventListener('click', event => {
-  let new_link_to_compare = new URL(link_to_compare);
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
-  new_link_to_compare.search = '?'; // cleaning if returned back
-  new_link_to_compare.href += (arrayOfIds.map(x=>`id[]=${x}`).join('&') + '&');
-  link_to_compare.href = new_link_to_compare.href;
+link_to_compare.addEventListener('click', event => {
+  document.cookie = `compareItems=[${arrayOfIds}];SameSite=Lax`
 });
 
 each(products, product => {
-  let switcher = false;
-
-  product.classList.remove('selected_compare'); // cleaning if returned back
+  if (!arrayOfIds.includes(parseInt(product.getAttribute('data-attribute-id')))) {
+    product.classList.remove('selected_compare')
+  } else {
+    product.classList.add('selected_compare');
+  }
 
   product.addEventListener('click', event => {
-    if (switcher = !switcher) {
-      arrayOfIds.push(product.getAttribute('data-attribute-id'));
+    if (!arrayOfIds.includes(parseInt(product.getAttribute('data-attribute-id')))) {
+      arrayOfIds.push(parseInt(product.getAttribute('data-attribute-id')));
       product.classList.add('selected_compare');
     } else {
-      let index = arrayOfIds.indexOf(product.getAttribute('data-attribute-id'));
+      let index = arrayOfIds.indexOf(parseInt(product.getAttribute('data-attribute-id')));
       arrayOfIds.splice(index, 1);
       product.classList.remove('selected_compare');
     }
