@@ -4,4 +4,8 @@ let getCookie = name => {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-export { getCookie }
+let addCookie = (key, value) => {
+  document.cookie = `${key}=${value};SameSite=Lax`;
+}
+
+export { getCookie, addCookie }
