@@ -18,15 +18,20 @@
       <hr>
       <p class="fs-6">GPU: <%= @product.gpu %></p>
       <hr><br>
-      <div class="row">
-        <div class="col-lg-6">
+      <div class="row mb-3">
+        <div class="col-6">
           <p class='fs-3 mt-2 text-center'>$<%= @product.price %></p>
         </div>
-        <div class="col-lg-6">
-          <p><%= link_to 'Edit', edit_product_path(@product),
-                                class: 'btn btn-success fs-4 text-white' %></p>
+        <div class="col-6">
+          <span><%= link_to 'Edit', edit_product_path(@product),
+                        class: 'btn btn-success fs-4 text-white me-3' %></span>
+          <span data-attribute-id='<%= @product.id %>' class='compare_button'>
+            <%= image_tag 'weigher.png', width: '30px' %>
+          </span>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag 'products/show' %>
